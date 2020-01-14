@@ -21,9 +21,9 @@ def convert_graph_def_to_saved_model(export_dir, graph_filepath):
         inputs={ node.name: session.graph.get_tensor_by_name('{}:0'.format(node.name)) for node in graph_def.node if node.op=='Placeholder' },
         outputs={
             "swa_model/policy_output": session.graph.get_tensor_by_name("swa_model/policy_output:0"),
-            "swa_model/value_output": session.graph.get_tensor_by_name("swa_model/value_output"),
-            "swa_model/miscvalues_output": session.graph.get_tensor_by_name("swa_model/miscvalues_output"),
-            "swa_model/ownership_output": session.graph.get_tensor_by_name("swa_model/ownership_output"),
+            "swa_model/value_output": session.graph.get_tensor_by_name("swa_model/value_output:0"),
+            "swa_model/miscvalues_output": session.graph.get_tensor_by_name("swa_model/miscvalues_output:0"),
+            "swa_model/ownership_output": session.graph.get_tensor_by_name("swa_model/ownership_output:0"),
         }
     )
     print('Optimized graph converted to SavedModel!')

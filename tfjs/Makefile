@@ -41,4 +41,4 @@ web_model: saved_model/saved_model.pb
 	    web_model
 
 clean:
-	rm -rf saved_model web_model
+	rm -rf tmp saved_model web_model
